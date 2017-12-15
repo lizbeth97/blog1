@@ -13,11 +13,19 @@
 <body>
 
     <header>
-        
+        <!--<h1>{{request()->is('/')?'Estas en el home':'No estas en el home'}}</h1>-->
+        <?php function activeManu($url){
+            return request()->is($url) ?'active' : '';
+        }?>
         <nav>
-            <a class="active" href="{{route('home')}}">Inicio</a>
-            <a href="{{ route('saludos', 'Liz')}}">Saludo</a>
-            <a href="{{route('contactos')}}">Contacto</a>
+            <a class="{{ activeManu('/') }}" 
+               href="{{route('home')}}">Inicio</a>
+            
+            <a class="{{activeManu('saludos/*')}}" 
+               href="{{ route('saludos', 'Liz')}}">Saludo</a>
+            
+            <a class="{{activeManu('contactame')}}" 
+               href="{{route('contactos')}}">Contacto</a>
 
         </nav>
     </header>

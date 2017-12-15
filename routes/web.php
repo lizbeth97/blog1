@@ -14,3 +14,5 @@ Route::get('contactame', ['as' => 'contactos', 'uses' => 'PagesControllers@conta
 
 
 Route::get('saludos/{nombre?}',['as' => 'saludos', 'uses' => 'PagesControllers@saludo'])->where('nombre', "[A-Za-z]+");
+
+Route::post('contacto','PagesControllers@mensajes');

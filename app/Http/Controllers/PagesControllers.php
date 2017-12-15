@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class PagesControllers extends Controller
 {
+    
+        
     public function home(){
         return view('home');
     }
@@ -24,5 +26,15 @@ class PagesControllers extends Controller
         "Wii"
     ];
     return view('saludo', compact('html','nombre', 'script', 'consolas'));
+    }
+    
+    public function mensajes(Request $request){
+        if($request->has('nombre'))
+        {
+            return "Si tiene nombre, es ". $request->input('nombre');
+        }
+    
+        return "no tiene nombre";
+    
     }
 }
