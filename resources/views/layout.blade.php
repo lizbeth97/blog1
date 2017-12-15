@@ -2,15 +2,22 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Untitled Document</title>
+    <title>Mi sitio</title>
+    <style>
+        .active{
+            text-decoration: none;
+            color: green;
+        }
+    </style>
 </head>
 <body>
 
     <header>
+        
         <nav>
-            <a href="<?php echo route('home') ?>">Inicio</a>
-            <a href="<?php echo route('saludos', 'Liz') ?>">Saludo</a>
-            <a href="<?php echo route('contactos') ?>">contacto</a>
+            <a class="active" href="{{route('home')}}">Inicio</a>
+            <a href="{{ route('saludos', 'Liz')}}">Saludo</a>
+            <a href="{{route('contactos')}}">Contacto</a>
 
         </nav>
     </header>
