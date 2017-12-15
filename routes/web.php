@@ -8,7 +8,7 @@ Route::get('/', ['as' => 'home', function(){
 }]);
 
 Route::get('contactame', ['as' => 'contactos',function(){
-	return "Hola desde a pagina de contacto";
+	return view('contactos');
 }]);
 
 Route::get('saludos/{nombre?}',['as' => 'saludos', function($nombre = "invitado"){
