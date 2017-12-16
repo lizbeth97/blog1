@@ -7,19 +7,19 @@
     <p><label for="nombre">
         Nombre
         <input type="text" name="nombre" value="{{old('nombre')}}">
-        {{$errors->first('nombre', '<span class=error>message</span>') }}
+        {!!$errors->first('nombre', '<span class=error>:message</span>') !!}
     </label></p>
     
     <p><label for="email">
         Email
         <input type="text" name="email" value="{{old('email')}}">
-        {{$errors->first('email') }}
+        {!!$errors->first('email', '<span class=error>:message</span>') !!}
         </label></p>
     
     <p><label for="mensaje">
         Mensaje
         <textarea name="mensaje">{{ old('mensaje')}}</textarea>
-        {{$errors->first('mensaje') }}
+        {!!$errors->first('mensaje', '<span class=error>:message</span>') !!}
         </label></p>
     
     <input type="submit" value="Enviar">
