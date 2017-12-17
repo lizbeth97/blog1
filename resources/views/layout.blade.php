@@ -30,7 +30,7 @@
                href="{{ route('saludos', 'Liz')}}">Saludo</a>
             
             <a class="{{activeManu('contactame')}}" 
-               href="{{route('contactos')}}">Contacto</a>
+               href="{{route('messages.create')}}">Contacto</a>
 
         </nav>
     </header>

@@ -7,10 +7,12 @@
 @if(session()->has('info'))
 <h3>{{session('info')}}</h3>
 @else
-<form method="post" action="contacto">
+<form method="post" action='{{route('messages.store')}}'>
+    {{csrf_field()}}
+    
     <p><label for="nombre">
-        
-        <input type="hidden" name="token" value="{{csrf_token()}}">
+        Nombre
+        <input type="text" name="nombre" value="{{old('nombre')}}">
         {!!$errors->first('nombre', '<span class=error>:message</span>') !!}
     </label></p>
     
