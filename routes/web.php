@@ -7,7 +7,7 @@
 //    return view('home');
 //
 
-Route::get('/', ['as' => 'home', 'uses' => 'PagesControllers@home']);
+Route::get('/', ['as' => 'home', 'uses' => 'PagesControllers@home'])->middleware('example');
 
 
 Route::get('contactame', ['as' => 'contactos', 'uses' => 'PagesControllers@contact']);

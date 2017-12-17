@@ -3,10 +3,14 @@
 @section('contenido')
 <h1>Contactos</h1>
 <h2>Escribeme</h2>
+
+@if(session()->has('info'))
+<h3>{{session('info')}}</h3>
+@else
 <form method="post" action="contacto">
     <p><label for="nombre">
-        Nombre
-        <input type="text" name="nombre" value="{{old('nombre')}}">
+        
+        <input type="hidden" name="token" value="{{csrf_token()}}">
         {!!$errors->first('nombre', '<span class=error>:message</span>') !!}
     </label></p>
     
@@ -24,4 +28,5 @@
     
     <input type="submit" value="Enviar">
 </form>
+@endif
 @stop

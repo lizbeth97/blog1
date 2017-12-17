@@ -9,7 +9,10 @@ use Illuminate\Http\Request;
 class PagesControllers extends Controller
 {
     
-        
+    public function __construct(){
+        $this->middleware('example', ['only'=>['home']]);
+    }
+    
     public function home(){
         return view('home');
     }
@@ -32,7 +35,8 @@ class PagesControllers extends Controller
     
     public function mensajes(\App\Http\Requests\CreateMessageRequest $request){
         
-        return $request->all();
-    
+        $data= $request->all();
+        
+        return back()->with('info', 'tu mensaje ha sido enviado correctamente');
     }
 }
