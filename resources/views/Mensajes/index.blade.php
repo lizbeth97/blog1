@@ -16,16 +16,16 @@
                 <tr>
                     
                     <td>
-                        <a href="{{route('messages.show',$m->id)}}">
+                        <a href="{{route('mensajes.show',$m->id)}}">
                         {{$m->nombre}}
                         </a>
                     </td>
                     <td>{{$m->email}}</td>
                     <td>{{$m->mensaje}}</td>
                     <td>
-                        <a href="{{route('messages.edit', $m->id)}}">Editar</a>
+                        <a href="{{route('mensajes.edit', $m->id)}}">Editar</a>
                         
-                        <form style="display:inline" method="post" action="{{route('messages.destroy', $m->id)}}">
+                        <form style="display:inline" method="post" action="{{route('mensajes.destroy', $m->id)}}">
                             {!!method_field('DELETE')!!}
                             {!!csrf_field()!!}
                             <button type="submit">Eliminar</button>

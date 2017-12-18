@@ -30,10 +30,10 @@
                href="{{ route('saludos', 'Liz')}}">Saludo</a>
             
             <a class="{{activeManu('messages.create')}}" 
-               href="{{route('messages.create')}}">Contacto</a>
+               href="{{route('mensajes.create')}}">Contacto</a>
             
             <a class="{{activeManu('mensajes')}}" 
-               href="{{route('messages.index')}}">Mensajes</a>
+               href="{{route('mensajes.index')}}">Mensajes</a>
             
 
         </nav>
