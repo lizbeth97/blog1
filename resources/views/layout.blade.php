@@ -26,15 +26,24 @@
             <a class="{{ activeManu('/') }}" 
                href="{{route('home')}}">Inicio</a>
             
-            <a class="{{activeManu('saludos/*')}}" 
+            <a class="{{activeManu('saludos*')}}" 
                href="{{ route('saludos', 'Liz')}}">Saludo</a>
             
             <a class="{{activeManu('messages.create')}}" 
                href="{{route('mensajes.create')}}">Contacto</a>
             
-            <a class="{{activeManu('mensajes')}}" 
+
+               @if(auth()->check())
+               <a class="{{activeManu('mensajes')}}" 
                href="{{route('mensajes.index')}}">Mensajes</a>
-            
+               
+               <a href="/logout">Cerrar sessión de {{auth()->user()->email}}</a>
+               @endif
+
+               @if(auth()->guest())
+            <a class="{{activeManu('login')}}" 
+               href="/login">Login</a>
+               @endif
 
         </nav>
     </header>

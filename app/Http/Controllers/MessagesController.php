@@ -19,9 +19,14 @@ class MessagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     function __contructor()
+    {
+        $this->middleware('auth', ['except'=>['create', 'store']]);
+    }
+
     public function index()
     {
-        //$mensajes=DB::table('messages')->get();
         
         $mensajes=Message::all();
 
@@ -47,17 +52,9 @@ class MessagesController extends Controller
     public function store(Request $request)
     {
 
-        DB::table('messages')->insert([
-            "nombre"=> $request->input('nombre'),
-            "email"=> $request->input('email'),
-            "mensaje"=> $request->input('mensaje'),
-            "created_at"=> Carbon::now(),
-            "updated_at"=> Carbon::now(),
-        ]);
-
         Message::create($request->all());
 
-        return redirect()->route('mensajes.index');
+        return redirect()->route('mensajes.create')->with('info', 'Hemos recibido tu mensaje');
     }
 
     /**
