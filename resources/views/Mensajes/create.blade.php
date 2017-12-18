@@ -7,7 +7,7 @@
 @if(session()->has('info'))
 <h3>{{session('info')}}</h3>
 @else
-<form method="post" action='{{route('messages.store')}}'>
+<form method="post" action="{{route('messages.store')}}">
     {{csrf_field()}}
     
     <p><label for="nombre">
