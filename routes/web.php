@@ -7,11 +7,20 @@
    return view('home');
 }]);*/
 
+// App\User::create([
+// 	'name'=>'nuevo',
+// 	'email'=>'nuevo@hotmail.com',
+// 	'password'=>bcrypt('1234'),
+// 	'role'=>'estudiante'
+// ]);
+
 Route::get('/', ['as' => 'home', 'uses' => 'PagesControllers@home']);
 
 Route::get('saludos/{nombre?}',['as' => 'saludos', 'uses' => 'PagesControllers@saludo'])->where('nombre', "[A-Za-z]+");
 
 Route::resource('mensajes', 'MessagesController');
+
+Route::resource('usuarios', 'UsersController');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')-> name('login');
 

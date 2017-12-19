@@ -53,7 +53,12 @@
                        <li class="{{activeManu('mensajes*')}}">
                          <a href="{{route('mensajes.index')}}">Mensajes</a>
                        </li>
-                    
+                       @if(auth()->user()->hasRoles(['admin', 'estudiante']))
+                       
+                       <li class="{{activeManu('usuarios*')}}">
+                         <a href="{{route('usuarios.index')}}">Usuarios</a>
+                       </li>
+                        @endif
                        @endif
                 </ul>
 
