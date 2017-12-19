@@ -2,9 +2,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Mi sitio</title>
 
     <link rel="stylesheet" href="/css/app.css">
+
 </head>
 <body>
 
@@ -62,20 +64,16 @@
                     <a href="/login">Login</a>
                      </li>
                      @else
-                     <li>
-                      <a href="/logout">Cerrar sessión de {{auth()->user()->email}}</a>
-                     </li>
-                     @endif
-
-                <!--   <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{auth()->user()->email}} <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li><a href="#">Separated link</a></li>
+
+                        <li><a href="/logout">Cerrar Sesión</a></li> 
+                        
                       </ul>
-                  </li> -->
+                  </li> 
+                  @endif
                 </ul>
             </div>
         </nav>
@@ -85,5 +83,10 @@
     @yield('contenido')
     <footer>Copyright ° {{date('Y')}}</footer>
   </div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="{{asset('js/all.js')}}"></script>
 </body>
 </html>
