@@ -1,6 +1,3 @@
-
-{{dd(auth()->user()->roles)}}
-
 <!doctype html>
 <html>
 <head>
@@ -78,6 +75,8 @@
                       <ul class="dropdown-menu">
 
                         <li><a href="/logout">Cerrar Sesión</a></li> 
+
+                        <li><a href="/usuarios/{{auth()->id()}}/edit">Mi cuenta</a></li> 
                         
                       </ul>
                   </li> 
