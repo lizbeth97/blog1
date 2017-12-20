@@ -8,10 +8,9 @@
 }]);*/
 
 // App\User::create([
-// 	'name'=>'lalo',
-// 	'email'=>'lalo@hotmail.com',
-// 	'password'=>bcrypt('123'),
-// 	'role_id'=>'2'
+// 	'name'=>'Estudiante',
+// 	'email'=>'es@hotmail.com',
+// 	'password'=>bcrypt('12345')
 // ]);
 
 Route::get('roles', function(){

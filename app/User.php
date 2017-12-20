@@ -35,15 +35,7 @@ class User extends Authenticatable
    {
     foreach ($roles as $role)
      {
-
-        foreach ($this->roles as $userRole){
-                if ($userRole->name===$role)
-                {
-                    return true;
-                }
-            }
-
-        
+        return $this->roles->pluck('name')->intersect($roles)->count(); 
     }
     return false;
     //return $this->role ===$role;
@@ -52,5 +44,10 @@ class User extends Authenticatable
    public function isAdmin()
    {
         return $this->hasRoles(['admin']);
+   }
+
+   public function messages()
+   {
+    return $this->hasMany(Message::class);
    }
 }

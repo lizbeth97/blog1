@@ -10,17 +10,19 @@
 <form method="post" action="{{route('mensajes.store')}}">
     {{csrf_field()}}
     
-    <p><label for="nombre">
-        Nombre
-        <input class="form-control" type="text" name="nombre" value="{{old('nombre')}}">
-        {!!$errors->first('nombre', '<span class=error>:message</span>') !!}
-    </label></p>
-    
-    <p><label for="email">
-        Email
-        <input class="form-control" type="text" name="email" value="{{old('email')}}">
-        {!!$errors->first('email', '<span class=error>:message</span>') !!}
+    @if(auth()->guest())
+        <p><label for="nombre">
+            Nombre
+            <input class="form-control" type="text" name="nombre" value="{{old('nombre')}}">
+            {!!$errors->first('nombre', '<span class=error>:message</span>') !!}
         </label></p>
+        
+        <p><label for="email">
+            Email
+            <input class="form-control" type="text" name="email" value="{{old('email')}}">
+            {!!$errors->first('email', '<span class=error>:message</span>') !!}
+            </label></p>
+    @endif
     
     <p><label for="mensaje">
         Mensaje

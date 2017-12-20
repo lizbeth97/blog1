@@ -6,10 +6,11 @@
 	<table class="table">
 		<thead>
 	            <tr>
+	                <th>id</th>
 	                <th>Nombre</th>
 	                <th>Email</th>
-	                <th>Role</th>
-	                <th>Acciones</th>
+	                <th>Rol</th>
+	                <th>Accion</th>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -19,9 +20,10 @@
 	           	<td>{{$user->name}}</td>
 	           	<td>{{$user->email}}</td>
 	           	<td>
-	           		@foreach($user->roles as $role)
+	           		{{$user->roles->pluck('display_name')->implode(', ')}}
+	           		<!--@foreach($user->roles as $role)
 	           			{{ $role->display_name }}
-	           		@endforeach
+	           		@endforeach-->
 	           	</td>
 	           	<td>
 	           		<a class="btn btn-info btn-xs" 

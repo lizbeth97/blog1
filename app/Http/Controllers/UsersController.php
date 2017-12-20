@@ -90,7 +90,7 @@ class UsersController extends Controller
     {
         $user=User::findOrFail($id);
 
-        $this-authorize($user);
+        $this->authorize($user);
 
         $user->update($request->all());
 
