@@ -21,9 +21,6 @@
 	           	<td>{{$user->email}}</td>
 	           	<td>
 	           		{{$user->roles->pluck('display_name')->implode(', ')}}
-	           		<!--@foreach($user->roles as $role)
-	           			{{ $role->display_name }}
-	           		@endforeach-->
 	           	</td>
 	           	<td>
 	           		<a class="btn btn-info btn-xs" 

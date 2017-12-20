@@ -9,8 +9,8 @@
 
 // App\User::create([
 // 	'name'=>'Estudiante',
-// 	'email'=>'es@hotmail.com',
-// 	'password'=>bcrypt('12345')
+// 	'email'=>'es@email.com',
+// 	'password'=>bcrypt('123')
 // ]);
 
 Route::get('roles', function(){

@@ -50,14 +50,14 @@ class MessagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-
-        $mensaje=Message::create($request->all());
-
-        if(auth()->check())
         {
-            auth()->user()->messages()->save($mensaje);
-        }
+        // $mensaje=Message::create($request->all());
+        // if(auth()->check())
+        // {
+        //     auth()->user()->messages()->save($mensaje);
+        // }
+
+            auth()->user()->create($request->all());
 
         return redirect()->route('mensajes.create')->with('info', 'Hemos recibido tu mensaje');
     }
