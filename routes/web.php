@@ -8,11 +8,15 @@
 }]);*/
 
 // App\User::create([
-// 	'name'=>'nuevo',
-// 	'email'=>'nuevo@hotmail.com',
-// 	'password'=>bcrypt('1234'),
-// 	'role'=>'estudiante'
+// 	'name'=>'lalo',
+// 	'email'=>'lalo@hotmail.com',
+// 	'password'=>bcrypt('123'),
+// 	'role_id'=>'2'
 // ]);
+
+Route::get('roles', function(){
+	return \App\Role::with('user')->get();
+});
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesControllers@home']);
 

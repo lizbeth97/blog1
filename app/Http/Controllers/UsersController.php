@@ -14,7 +14,7 @@ class UsersController extends Controller
 
     public function __construct(){
         $this->middleware([
-            'auth', 'roles:admin,estudiante'
+            'auth'//, 'roles:admin,estudiante'
         ]);
     }
 
