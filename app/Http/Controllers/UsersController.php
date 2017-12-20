@@ -17,10 +17,10 @@ class UsersController extends Controller
      */
 
     public function __construct(){
-        $this->middleware([
-            'auth']);
+        $this->middleware(
+            'auth',['except'=>['show']]);
 
-        $this->middleware('roles:admin', ['except'=>['edit']]);
+        $this->middleware('roles:admin', ['except'=>['edit', 'update', 'show']]);
     }
 
     public function index()
@@ -59,7 +59,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=User::findOrFail($id);
+
+        return view ('users.show', compact('user'));
     }
 
     /**
@@ -71,6 +73,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user=User::findOrFail($id);
+
+        $this->authorize($user);
+
         return view('users.edit', compact('user'));
     }
 
@@ -85,7 +90,10 @@ class UsersController extends Controller
     {
         $user=User::findOrFail($id);
 
+        $this-authorize($user);
+
         $user->update($request->all());
+
         return back()->with('info', 'Usuario actualizado');
     }
 
@@ -97,6 +105,12 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::findOrFail($id);
+
+        $this->authorize($user);
+
+        $user->delete();
+
+        return back();
     }
 }
