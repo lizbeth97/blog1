@@ -14,15 +14,15 @@ class UsersController extends Controller
 
     public function __construct(){
         $this->middleware([
-            'auth'//, 'roles:admin,estudiante'
+            'auth', 'roles:admin,estudiante'
         ]);
     }
 
     public function index()
     {
-        $users=\App\User::all();
+        $user=\App\User::all();
 
-        return view('users.index', compact('users'));
+        return view('users.index', compact('user'));
     }
 
     /**

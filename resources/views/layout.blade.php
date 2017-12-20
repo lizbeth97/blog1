@@ -1,3 +1,6 @@
+
+{{dd(auth()->user()->roles)}}
+
 <!doctype html>
 <html>
 <head>
@@ -53,7 +56,7 @@
                        <li class="{{activeManu('mensajes*')}}">
                          <a href="{{route('mensajes.index')}}">Mensajes</a>
                        </li>
-                       @if(auth()->user()->hasRoles(['admin', 'estudiante']))
+                       @if(auth()->user()->hasRoles(['admin']))
                        
                        <li class="{{activeManu('usuarios*')}}">
                          <a href="{{route('usuarios.index')}}">Usuarios</a>
