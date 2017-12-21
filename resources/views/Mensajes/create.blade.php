@@ -8,10 +8,10 @@
 
 @if(session()->has('info'))
 <h3>{{session('info')}}</h3>
-@else
 
+@else
 <form method="post" action="{{route('mensajes.store')}}">
-    @include('mensajes.form')
+    @include('mensajes.form', ['mensaje'=> new App\Message])
 </form>
 @endif
 
