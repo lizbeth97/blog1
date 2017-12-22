@@ -9,6 +9,7 @@
                 <th>Email</th>
                 <th>Mensaje</th>
                 <th>Notas</th>
+                <th>Etiquetas</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -20,8 +21,13 @@
                     <td>{{$m->mensaje}}</td>
                     
                     <td>
-                       {{optional($m->note)->body}} 
+                       {{optional ($m->note)->body}} 
                     </td>
+
+                    <td>
+                       {{optional($m->tags)->pluck('name')->implode(', ')}} 
+                    </td>
+
 
                     <td>
                 

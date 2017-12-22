@@ -12,6 +12,7 @@
 	                <th>Email</th>
 	                <th>Rol</th>
 	                <th>Notas</th>
+	                <th>Etiquetas</th>
 	                <th>Accion</th>
 	            </tr>
 	        </thead>
@@ -27,6 +28,11 @@
 	           	<td>
 	           		{{optional($user->note)->body}}
 	           	</td>
+
+	           	<td>
+                       {{optional($user->tags)->pluck('name')->implode(', ')}} 
+                    </td>
+
 	           	<td>
 	           		<a class="btn btn-info btn-xs" 
 	           		href="{{route('usuarios.edit', $user->id)}}">Editar</a>

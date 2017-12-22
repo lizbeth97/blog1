@@ -29,7 +29,7 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users=\App\User::all();
+        $users=\App\User::with(['roles', 'note', 'tags'])->get();;
 
         return view('users.index', compact('users'));
     }

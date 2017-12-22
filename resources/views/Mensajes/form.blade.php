@@ -1,6 +1,6 @@
 {!!csrf_field()!!}
     
-    @if(!$mensaje->nombre && !$mensaje->emial)
+    @if(!$mensaje->nombre && !$mensaje->email)
         <p><label for="nombre">
             Nombre
             <input class="form-control" type="text" name="nombre" value="{{$mensaje->nombre or old('nombre')}}">

@@ -28,7 +28,7 @@ class MessagesController extends Controller
     public function index()
     {
         
-        $mensajes=Message::all();
+        $mensajes=Message::with(['user', 'note', 'tags'])->get();
 
         return view('mensajes.index', compact('mensajes'));
     }
