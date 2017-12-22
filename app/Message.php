@@ -7,4 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     protected $fillable=['nombre', 'email','mensaje'];
+
+    public function note()
+	{
+
+		return $this->morphOne(Note::class, 'notable');
+	}
 }
+

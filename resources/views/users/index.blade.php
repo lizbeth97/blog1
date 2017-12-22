@@ -2,6 +2,7 @@
 
 @section('contenido')
 
+	<a class="btn btn-success pull-right" href="{{route('usuarios.create')}}">Crear nuevo usuario</a>
 	<h1>Usuarios</h1>
 	<table class="table">
 		<thead>
@@ -10,6 +11,7 @@
 	                <th>Nombre</th>
 	                <th>Email</th>
 	                <th>Rol</th>
+	                <th>Notas</th>
 	                <th>Accion</th>
 	            </tr>
 	        </thead>
@@ -23,8 +25,12 @@
 	           		{{$user->roles->pluck('display_name')->implode(', ')}}
 	           	</td>
 	           	<td>
+	           		{{optional($user->note)->body}}
+	           	</td>
+	           	<td>
 	           		<a class="btn btn-info btn-xs" 
 	           		href="{{route('usuarios.edit', $user->id)}}">Editar</a>
+	           		
 	           		<form style="display: inline" 
 		           		method="POST" 
 		           		action="{{route('usuarios.destroy', $user->id)}}">

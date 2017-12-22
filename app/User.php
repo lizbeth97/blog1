@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function setPasswordAttribute($password)
+    {
+      $this->attributes['password']=bcrypt($password);
+    }
+
     public function roles(){
         return $this->belongsToMany(Role::class, 'assigned_roles');
     }
@@ -47,4 +52,10 @@ class User extends Authenticatable
    {
     return $this->hasMany(Message::class);
    }
+
+   public function note()
+  {
+
+    return $this->morphOne(Note::class, 'notable');
+  }
 }
