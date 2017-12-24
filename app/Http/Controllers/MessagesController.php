@@ -10,6 +10,8 @@ use DB;
 
 use App\Message;
 
+use Mail;
+
 use Illuminate\Database\Eloquent\Model;
 
 class MessagesController extends Controller
@@ -53,9 +55,14 @@ class MessagesController extends Controller
         {
 
 
-            auth()->user()->messages()->create($request->all());
+            $mensaje=auth()->user()->messages()->create($request->all());
+
+            Mail::send('emails.contact', ['msg'=>$mensaje], function($men) use ($mensaje){
+                $men->to($mensaje->email, $mensaje->name)->subject('Tu mensaje fue recibido');
+            });
 
         return redirect()->route('mensajes.create')->with('info', 'Hemos recibido tu mensaje');
+
     }
 
     /**
