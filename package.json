@@ -19,7 +19,7 @@
     "laravel-mix": "^1.0",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue": "^2.5.7"
